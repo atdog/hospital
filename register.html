@@ -58,7 +58,10 @@
         $.cookie("data", results);
         $('#editButton').addClass('hidden');
         updateLeftList();
-        updateRightData("","","","");
+		$('#inputNameValue').html("");
+		$('#inputIdValue').html("");
+		$('#inputBirthdayValue').html("");
+		$('#inputPhoneValue').html("");
         hideEditPage();
 	}
 	function updateRightData(name, id, birthday, phone) {
