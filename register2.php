@@ -93,6 +93,7 @@
 				$('#List').html("");
 				$('#List').html("<div id='photoTitle' class='title'>醫生</div>");
 				doctorList = response[2]['doctor'];
+                deptId = response[0]['id']
 				for ( var i = 0; i < doctorList.length; ++i) {
 					for ( var key in doctorList[i]) {
 						doctorName = doctorList[i][key];
@@ -101,7 +102,7 @@
 								.append(
 										'<div class="item" onClick="chooseDoctor(\''
 												+ key + '\',\'' + doctorName
-												+ '\',\'' + url + '\')">'
+												+ '\',\'' + url + '\',\''+deptId+'\')">'
 												+ doctorName + '</div>');
 					}
 				}
@@ -120,13 +121,14 @@
 		});
 	}
 
-	function chooseDoctor(id, name, url) {
+	function chooseDoctor(id, name, url, deptId) {
 		$('#List').html("<div class='white'><div class='loading'>讀取中...</div></div>");
 		$.ajax({
 			type : "GET",
 			url : "local-ajax/doctor.php",
             data : {
                 "id": id,
+                "deptId":deptId,
                 "url": url
             },
 			dataType : "json",
