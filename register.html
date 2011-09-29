@@ -13,6 +13,7 @@
 <script>
 	$(document).ready(function() {
 	//dropTable();
+        $('#editButton').addClass('hidden');
 		selectAllPerson();
 	});
 
@@ -55,13 +56,14 @@
             }
         }
         $.cookie("data", results);
-        window.location.reload("register.html");
+        $('#editButton').addClass('hidden');
+        updateLeftList();
+        updateRightData("","","","");
+        hideEditPage();
 	}
 	function updateRightData(name, id, birthday, phone) {
-		$('#inputName').val(name);
-		$('#inputId').val(id);
-		$('#inputBirthday').val(birthday);
-		$('#inputPhone').val(phone);
+        $('#editButton').removeClass('hidden');
+
 		$('#inputNameValue').html(name);
 		$('#inputIdValue').html(id);
 		$('#inputBirthdayValue').html(birthday);
@@ -111,19 +113,7 @@
             updateLeftList();
             updateRightData(inputName, inputId, inputBirthday, inputPhone);
             hideEditPage();
-		} else {
-			alert("Empty column.");
-		}
-    }
 
-	function submitForm() {
-		var inputName = $('#inputName').val();
-		var inputId = $('#inputId').val();
-		var inputBirthday = $('#inputBirthday').val();
-		var inputPhone = $('#inputPhone').val();
-
-
-        if(inputName.length != 0 && inputId.length != 0 && inputBirthday.length != 0 && inputPhone.length != 0) {
 			$.ajax({
 				type : "GET",
 				url : "local-ajax/newUser.php",
@@ -133,13 +123,28 @@
 					"birthday" : inputBirthday
 				},
 				success : function(response) {
-					$('#personalInfo').submit();
 				},
 				error : function(xhr, ajaxOptions, thrownError) {
 					alert(xhr.status);
 					alert(thrownError);
 				}
 			});
+		} else {
+			alert("Empty column.");
+		}
+    }
+
+	function submitForm() {
+		var inputName = $('#inputNameValue').html();
+		var inputId = $('#inputIdValue').html();
+		var inputBirthday = $('#inputBirthdayValue').html();
+		var inputPhone = $('#inputPhoneValue').html();
+
+
+        if(inputName.length != 0 && inputId.length != 0 && inputBirthday.length != 0 && inputPhone.length != 0) {
+            $('#postId').val(inputId);
+            $('#postBirthday').val(inputBirthday);
+            $('#personalInfo').submit();
 		} else {
 			alert("Empty column.");
 		}
@@ -154,6 +159,14 @@
             $('#inputId').val("");
             $('#inputBirthday').val("");
             $('#inputPhone').val("");
+            $('#deleteButton').addClass('hidden');
+        }
+        else {
+            $('#inputName').val($('#inputNameValue').html());
+            $('#inputId').val($('#inputIdValue').html());
+            $('#inputBirthday').val($('#inputBirthdayValue').html());
+            $('#inputPhone').val($('#inputPhoneValue').html());
+            $('#deleteButton').removeClass('hidden');
         }
         $('#editInfo').slideDown('slow');
         $('#transparent').removeClass('hidden');
@@ -192,7 +205,7 @@
 				<div class="inputTextLeft">姓名：</div>
 				<div class="inputTextRight">
 					<span id="inputNameValue" ></span>
-					<span class="editButton" onclick="editPage('編輯個人資料', 0)">編輯</span>
+					<span class="editButton" id="editButton" onclick="editPage('編輯個人資料', 0)">編輯</span>
 				</div>
 				
 				<div class="clear"></div>
@@ -215,7 +228,8 @@
 			<a class="button" id="lastPage" onClick="lastPage();"	>上一頁</a> 
 			<a class="button" id="submit" onClick="javascript:submitForm();">送出</a>
 			<div class="clear"></div>
-
+            <input type="hidden" id="postId" name="id"></input>
+            <input type="hidden" id="postBirthday" name="birthday"></input>
 		</form>
 	</div>
 	
@@ -233,23 +247,24 @@
 			<div class="formData">
 				<div class="inputTextLeft">姓名：</div>
 				<div class="inputTextRight">
-					<input type="text" name="name" id="inputName" placeholder="請輸入姓名"></input>
+					<input type="text" id="inputName" placeholder="請輸入姓名"></input>
+					<span class="editButton" id="deleteButton" onclick="deletePerson($('#inputId').val())">刪除</span>
 				</div>
 				<div class="clear"></div>
 				<div class="inputTextLeft">身分證：</div>
 				<div class="inputTextRight">
-					<input type="text" name="id" id="inputId" placeholder="請輸入身分證字號"></input>
+					<input type="text" id="inputId" placeholder="請輸入身分證字號"></input>
 				</div>
 				<div class="clear"></div>
 				<div class="inputTextLeft">生日：</div>
 				<div class="inputTextRight">
-					<input type="text" name="birthday" id="inputBirthday"
+					<input type="text" id="inputBirthday"
 						placeholder="請輸入生日,例：1988/02/03"></input>
 				</div>
 				<div class="clear"></div>
 				<div class="inputTextLeft">電話：</div>
 				<div class="inputTextRight">
-					<input type="text" name="phone" id="inputPhone"
+					<input type="text" id="inputPhone"
 						placeholder="請輸入電話號碼"></input>
 				</div>
 				<div class="clear"></div>
