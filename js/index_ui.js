@@ -8,6 +8,7 @@ $(document).ready(function(){
 
 window.onresize = function(event) {
 	setHeight();
+    $('#calendar').fullCalendar('option', 'height', window.innerHeight - 20 ); 
 }
 
 function setHeight() {
