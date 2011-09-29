@@ -21,6 +21,7 @@ function setHeight() {
 	$("#personal").height(height);
 	
 	
+    $('#transparent').height(height);
 	$("#List").height(height);	
 	$("#info").height(height);
 	$("#Form").height(height);
