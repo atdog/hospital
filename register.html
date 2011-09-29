@@ -46,8 +46,7 @@
 									+ person.birthday
 									+ '\',\''
 									+ person.phone
-									+ '\')"></img><img src="X.jpg" align="top" width="10%" onClick="deletePerson(\''
-									+ person.keyId + '\',\''+person.id+'\');"/></div>');
+									+ '\')"></img></div>');
 		}
 	}
 	function deletePerson(keyId, idNumber) {
@@ -155,7 +154,12 @@
 <body>
 	<div id="personal">
 		<div id="photoTitle" class="title">個人資料</div>
-		<div class="photoList" id="personList"></div>
+		<div class="photoList" id="personList">
+		<div class="photo">		
+			<img src="archer.jpg"></img>
+		</div>'
+		
+		</div>
 		<div class="button" id="newInfo" onClick="newInfo()">新增資料</div>
 	</div>
 	
