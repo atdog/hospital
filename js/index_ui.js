@@ -7,7 +7,7 @@ $(document).ready(function(){
 });
 
 window.onresize = function(event) {
-	setHeight();
+	//setHeight();
     $('#calendar').fullCalendar('option', 'height', window.innerHeight - 20 ); 
 }
 
@@ -16,6 +16,8 @@ function setHeight() {
 	
 	$(".tableDiv").height(height-$("#listTitle").height()-$("#new").height()-70);
 	$("#listDiv").height(height);
+
+    $("#transparent").height(height);
 	
 	$("#personList").height(height-$("#newInfo").height()-$('#photoTitle').height()-70);	
 	$("#personal").height(height);
