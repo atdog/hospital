@@ -1,6 +1,18 @@
 @CHARSET "UTF-8";
 
+@font-face {
+src:
+url('Apple LiGothic Medium.ttf') format('truetype');
+font-family: 'Apple';
+} 
+
+*
+{
+font-family:'Apple';
+}
+
 html,body {
+	
 	margin: 0;
 	padding: 0
 }
@@ -36,6 +48,7 @@ background: linear-gradient(top, #e0e0e0 0%,#ffffff 30%,#ffffff 91%,#dbdbdb 100%
 }
 
 #listTitle ,#photoTitle{
+	
 	height:12%;
 	padding-top:10px;
 	
@@ -330,7 +343,7 @@ float:left;
 	font-size: 2em;
 	position: relative;
 	top: 10%;
-	left: 35%;
+	left: 43%;
 	width: 50%;	
     margin-top: 10px;
     margin-bottom: 10px;
@@ -346,15 +359,6 @@ float:left;
 	margin-bottom: 1em;
 }
 
-.row .left {
-	float: left;
-	width: 30%;
-}
-
-.row .right {
-	float: right;
-	width: 70%;
-}
 
 
 
@@ -367,24 +371,24 @@ float:left;
 .row .left {
 	float: left;
 	position: relative;
-	left: 20%;
+	left: 30%;
 	width: 20%;
 }
 
 .row .right {
-	float: left;
+	float: right;
 	width: 70%;
 	position: relative;
-	left: 20%;
+	left: 30%;
 }
 
-.row .leftBtn,.row .rightBtn,#checkRegister #check {
-	
+.row .leftBtn,.row .rightBtn,#checkRegister #check {	
 	position: relative;
 	float: left;
-	width: 100px;
-	height:30px;
-	padding:10px;			
+	width: 20%;
+	height:15%;
+	padding:10px;				
+	
     top: 70px;
 	
 	font-size: 1.5em;
@@ -409,7 +413,7 @@ background: linear-gradient(top, #588e57 0%,#3e7c3c 1%,#3a7a39 3%,#1d7124 47%,#1
 
 #checkRegister #check {
 	top: 0px;
-	left: 180px;
+	left: 40%;
     margin-bottom: 10px;	
 	color:#FFFFFF;	
 	border-radius: 5px;
