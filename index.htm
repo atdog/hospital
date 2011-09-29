@@ -49,6 +49,9 @@ function queryRegist(rid) {
 				value:response['number'],
 			}).append('<div class="row"><div class="leftBtn" onClick="cancelRegister(\''+response['rid']+'\',\''+response['hospitalId']+'\',\''+response['deptId']+'\',\''+response['doctorId']+'\',\''+response['idNumber']+'\',\''+response['birthday']+'\',\''+response['time']+'\');">取消掛號</div><div class="rightBtn" onClick="javascript:$(\'#queryDiv\').addClass(\'hidden\');$(\'#transparent\').addClass(\'hidden\')">確認完成</div><div class="clear"></div><div>');
 
+            var queryDivTop = (window.innerHeight - $('#queryDiv').height()) / 2;
+            $('#queryDiv').css("top", queryDivTop);
+
 		},
 		error : function(xhr, ajaxOptions, thrownError) {
 			alert(xhr.status);
