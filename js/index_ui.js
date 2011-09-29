@@ -13,16 +13,14 @@ window.onresize = function(event) {
 
 function setHeight() {
 	var height = window.innerHeight;
-	var width = window.innerWidth*0.01;
-	var titleHeight = $("#listTitle").height();
-	var buttonHeight = $("#new").height();
-	var listHeight = height-titleHeight-buttonHeight-70;
-	$("#listDiv").height(height).css({
-		'border-left-width': width
-	});
-	$(".tableDiv").height(listHeight);
 	
-	$("#List").height(height);
-	$("#personList").height(height-$("#newInfo").height()-$('#photoTitle').height()-35);
-	$(".formData").height(height-$(".redTitle").height()-$(".button").height()-35);
+	$(".tableDiv").height(height-$("#listTitle").height()-$("#new").height()-70);
+	$("#listDiv").height(height);
+	
+	$("#personList").height(height-$("#newInfo").height()-$('#photoTitle').height()-70);	
+	$("#personal").height(height);
+	
+	
+	$("#info").height(height);
+	$(".formData").height(height-$(".redTitle").height()-$(".button").height()-120);
 }

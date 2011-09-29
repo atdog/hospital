@@ -260,8 +260,8 @@
 				<div class="clear"></div>
 			</div>
 			<input type="hidden" id="hiddenId" value="<?=$_POST['id']?>"></input> <input type="hidden" id="hiddenBirthday" value="<?=$_POST['birthday']?>"></input> 
-			<a	class="button" onClick="lastPage();" style="float: left">上一頁</a>
-			<a class="button" onClick="javascript:submitRegister();" style="float: right;">送出</a>
+			<a	class="button" id="lastPage" onClick="lastPage();" >上一頁</a>
+			<a class="button" id="submit" onClick="javascript:submitRegister();" ">送出</a>
 			<div class="clear"></div>
 
 		</form>

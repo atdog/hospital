@@ -156,12 +156,13 @@
 	<div id="personal">
 		<div id="photoTitle" class="title">個人資料</div>
 		<div class="photoList" id="personList"></div>
-		<div class="button" id="newInfo" style="width: 90%;" onClick="newInfo()">新增資料</div>
+		<div class="button" id="newInfo" onClick="newInfo()">新增資料</div>
 	</div>
 	
 	<div id="info">
 		<div class="redTitle">填寫個人資料</div>
 		<div id="notification" class="hidden" >請填入資料後，<br>按送出以新增資料</div>
+		
 		<form id="personalInfo" method="post" enctype="multipart/form-data"
 			action="register2.php">
 			<div class="formData">
@@ -189,8 +190,8 @@
 				<input type="hidden" id="keyId" value="0"></input>
 				<div class="clear"></div>
 			</div>
-			<a class="button" onClick="lastPage();"	style='float: left;'>上一頁</a> 
-			<a class="button" onClick="javascript:submitForm();" style="float: right;">送出</a>
+			<a class="button" id="lastPage" onClick="lastPage();"	>上一頁</a> 
+			<a class="button" id="submit" onClick="javascript:submitForm();">送出</a>
 			<div class="clear"></div>
 
 		</form>
