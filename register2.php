@@ -137,9 +137,11 @@
 				$('#List').html("<div id='photoTitle' class='title'>時間</div>");
 				time = response[3].time;
                 for(var i = 0; i < time.length; ++i) {
+                    timeObj = time[i].split('-');
+                    
             		$('#List')
             				.append(
-            						'<div class="item" onClick="chooseTime(\''+time[i]+'\')">'+time[i]+'</div>');
+            						'<div class="item" onClick="chooseTime(\''+time[i]+'\')">'+timeObj[1]+'/'+timeObj[2]+' '+timeObj[3]+'</div>');
                 }
 			},
 			error : function(xhr, ajaxOptions, thrownError) {
