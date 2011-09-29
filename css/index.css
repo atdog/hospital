@@ -5,10 +5,9 @@ html,body {
 	padding: 0
 }
 
-#calendar,#Form,#info {
-	height:420px;
+#calendar,#Form,#info {	
 	float: left;
-	width: 500px;
+	width: 62%;
 }
 
 #Form,#info
@@ -17,9 +16,10 @@ html,body {
 }
 
 #listDiv ,#personal,#List{
-	height:420px;
+	
 	float: left;
-	width: 250px;
+	width: 31%;
+	
 	border-right: 2px solid #999;
 	background:url(../assignMenuBack.png);
 }
@@ -30,7 +30,7 @@ html,body {
 }
 
 #listTitle ,#photoTitle{
-	height:60px;
+	height:12%;
 	padding-top:10px;
 	background:url(../ListTitleBack.png);
 }
@@ -88,8 +88,7 @@ html,body {
 
 #transparent {
     position: absolute;
-    background: rgba(255,255,255,0.7);
-    height:420px;
+    background: rgba(255,255,255,0.7);   
     width:100%;
 	z-index: 150;	
 }
@@ -184,6 +183,10 @@ background: -ms-linear-gradient(top, #8f4d4d 0%,#8f4d4d 1%,#8f4d4d 2%,#852323 48
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4d4d', endColorstr='#931d1d',GradientType=0 ); /* IE6-9 */
 background: linear-gradient(top, #8f4d4d 0%,#8f4d4d 1%,#8f4d4d 2%,#852323 48%,#831b1b 48%,#931d1d 100%); /* W3C */
 
+/*³±¼v*/
+-webkit-box-shadow: 2px 4px 4px 6px rgba(00, 00, 00, 0.6);
+-moz-box-shadow: 2px 4px 4px 6px rgba(00, 00, 00, 0.6);
+box-shadow: 2px 4px 4px 6px rgba(00, 00, 00, 0.6); 
 	
 }
 
@@ -267,7 +270,10 @@ background: -ms-linear-gradient(top, #588e57 0%,#3e7c3c 1%,#3a7a39 3%,#1d7124 47
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#588e57', endColorstr='#126b1a',GradientType=0 ); /* IE6-9 */
 background: linear-gradient(top, #588e57 0%,#3e7c3c 1%,#3a7a39 3%,#1d7124 47%,#126b1a 50%,#126b1a 100%); /* W3C */
 
-
+/*³±¼v*/
+-webkit-box-shadow: 2px 4px 4px 6px rgba(00, 00, 00, 0.6);
+-moz-box-shadow: 2px 4px 4px 6px rgba(00, 00, 00, 0.6);
+box-shadow: 2px 4px 4px 6px rgba(00, 00, 00, 0.6); 
 }
 
 /*
