@@ -12,7 +12,7 @@
 <script type='text/javascript' src='js/index_ui.js'></script>
 <script>
 	$(document).ready(function() {
-		//dropTable();
+	//dropTable();
 		selectAllPerson();
 	});
 
@@ -148,10 +148,14 @@
 	function lastPage() {
 		window.location='index.htm';
 	}
+
+	
+		
 </script>
 </head>
 
 <body>
+	<div id="transparent" class="hidden"></div>
 	<div id="personal">
 		<div id="photoTitle" class="title">個人資料</div>
 		<div class="photoList" id="personList">			
@@ -159,9 +163,58 @@
 		</div>
 		<div class="button" id="newInfo" onClick="newInfo()">新增資料</div>
 	</div>
+
+	
 	
 	<div id="info">
-		<div class="redTitle">填寫個人資料</div>
+				
+		<div class="redTitle">填寫個人資料 </div>
+		<!--<div id="notification" class="hidden" >請填入資料後，<br>按送出以新增資料</div>-->
+		
+		<form id="personalInfo" method="post" enctype="multipart/form-data"
+			action="register2.php">
+			<div class="formData">
+				
+				<div class="inputTextLeft">姓名：</div>
+				<div class="inputTextRight">
+					<input type="text" name="name" id="inputName" placeholder="請輸入姓名" readonly="readonly"></input>
+					<span class="editButton" onclick="$('#editInfo').slideDown('slow');$('#transparent').removeClass('hidden');">編輯</span>
+				</div>
+				
+				<div class="clear"></div>
+				<div class="inputTextLeft">身分證：</div>
+				<div class="inputTextRight">
+					<input type="text" name="id" id="inputId" placeholder="請輸入身分證字號"></input>
+				</div>
+				<div class="clear"></div>
+				<div class="inputTextLeft">生日：</div>
+				<div class="inputTextRight">
+					<input type="text" name="birthday" id="inputBirthday"
+						placeholder="請輸入生日,例：1988/02/03"></input>
+				</div>
+				<div class="clear"></div>
+				<div class="inputTextLeft">電話：</div>
+				<div class="inputTextRight">
+					<input type="text" name="phone" id="inputPhone"
+						placeholder="請輸入電話號碼"></input>
+				</div>
+				<input type="hidden" id="keyId" value="0"></input>
+				<div class="clear"></div>
+			</div>
+			<a class="button" id="lastPage" onClick="lastPage();"	>上一頁</a> 
+			<a class="button" id="submit" onClick="javascript:submitForm();">送出</a>
+			<div class="clear"></div>
+
+		</form>
+	</div>
+	
+	
+	<div class="clear"></div>
+	
+		
+	<div id="editInfo">
+				
+		<div class="redTitle">修改個人資料</div>
 		<!--<div id="notification" class="hidden" >請填入資料後，<br>按送出以新增資料</div>-->
 		
 		<form id="personalInfo" method="post" enctype="multipart/form-data"
@@ -191,12 +244,12 @@
 				<input type="hidden" id="keyId" value="0"></input>
 				<div class="clear"></div>
 			</div>
-			<a class="button" id="lastPage" onClick="lastPage();"	>上一頁</a> 
-			<a class="button" id="submit" onClick="javascript:submitForm();">送出</a>
+			<a class="button" id="lastPage" onClick="$('#editInfo').slideUp('slow');$('#transparent').addClass('hidden');">取消</a> 
+			<a class="button" id="submit" onClick="$('#editInfo').slideUp('slow');$('#transparent').addClass('hidden');">送出</a>
 			<div class="clear"></div>
 
 		</form>
 	</div>
-	<div class="clear"></div>
+	
 </body>
 </html>
