@@ -20,7 +20,7 @@ html,body {
 
 #calendar,#Form,#info {	
 	float: left;
-	width: 69%;
+	width: 68%;
 }
 
 #Form,#info
@@ -39,14 +39,14 @@ background: linear-gradient(top, #e0e0e0 0%,#ffffff 30%,#ffffff 91%,#dbdbdb 100%
 	
 	float: left;
 	width: 31%;	
-	border-right: 1% solid #999;	
-
-	/*background:url(../assignMenuBack.png);*/
+	border-right: 2px solid #999;	
+	
+	background:url(../assignMenuBack.png);
 }
 
 #personal
 {
-	/*background:url(../personalMenuBack.png);*/
+	background:url(../personalMenuBack.png);
 }
 
 #listTitle ,#photoTitle{
@@ -120,8 +120,9 @@ background: linear-gradient(top, #e0e0e0 0%,#ffffff 30%,#ffffff 91%,#dbdbdb 100%
 
 #queryDiv , #checkRegister{
 	position: absolute;
-	top: 20%;
-	left: 30%;
+	top: 20%;	
+	margin-left:30%;
+	margin-right:30%;
 	
     width: 40%;
 	z-index: 151;	
@@ -339,8 +340,6 @@ float:left;
 }
 
 
-
-
 #queryDiv .row {
 	font-size: 1.3em;
 	width: 100%;	
@@ -361,7 +360,7 @@ float:left;
 .row .right {
 	float: left;	
 	position: relative;	
-	width: 40%;
+	width: 50%;
 	text-align:left;
 	padding-left:5%;
 	
@@ -372,9 +371,9 @@ a.button {
 	margin-right:30px;
 	float : left;
 	width:25%;
-	height:2em;	
-	padding:0.5em;
+	height:2em;		
 	font-size: 1.5em;	
+	vertical-align:middle;
 	text-align: center;
 	border-radius: 5px;
 	
@@ -396,8 +395,9 @@ box-shadow: 1px 1px 4px 2px rgba(00, 00, 00, 0.6);
 
 .row .leftBtn,.row .rightBtn,#checkRegister #check {	
 	position: relative;	
-	width: 20%;
+	width: 25%;
 	height:15%;
+	margin-bottom:1em;
 	padding:10px;					
     top: 70px;
 	
@@ -438,12 +438,12 @@ background: linear-gradient(top, #588e57 0%,#3e7c3c 1%,#3a7a39 3%,#1d7124 47%,#1
 .row .leftBtn{
 	float:left;
 	margin-left:10%;
-	margin-right:20%;
+	margin-right:10%;
 	top: 80%;		
 }
 .row .rightBtn {	
 	float:right;
 	margin-right:10%;
-	margin-left:20%;
+	margin-left:10%;
 	top: 80%;		
 }
