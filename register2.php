@@ -208,6 +208,8 @@
 		                $('#checkRegister').append('<div id="check" onClick="backIndex()">確認完成</div>');
 						$('#checkRegister').removeClass('hidden');
 						$('#transparent').removeClass('hidden');
+                        var queryDivTop = (window.innerHeight - $('#checkRegister').height()) / 2;
+                        $('#checkRegister').css("top", queryDivTop);
 					},
 					error : function(xhr, ajaxOptions, thrownError) {
 						alert("Error. back to main page");
