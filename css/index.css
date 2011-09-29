@@ -20,7 +20,7 @@ html,body {
 
 #calendar,#Form,#info {	
 	float: left;
-	width: 68%;
+	width: 67%;
 }
 
 #Form,#info
@@ -38,7 +38,7 @@ background: linear-gradient(top, #e0e0e0 0%,#ffffff 30%,#ffffff 91%,#dbdbdb 100%
 #listDiv ,#personal,#List{
 	
 	float: left;
-	width: 31%;	
+	width: 32%;	
 	border-right: 2px solid #999;	
 	
 	background-attachment: fixed;
@@ -51,6 +51,8 @@ background: linear-gradient(top, #e0e0e0 0%,#ffffff 30%,#ffffff 91%,#dbdbdb 100%
 #personal
 {
 	background:url(../personalMenuBack.png);
+	background-position : bottom; /*向下對齊*/
+	background-position : left; /*向左對齊*/
 }
 
 #listTitle ,#photoTitle{
