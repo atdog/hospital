@@ -28,6 +28,6 @@ function setHeight() {
 	$("#Form").height(height);
 	
 	$(".formData").height(height-$(".redTitle").height()-$(".button").height()-120);
-	$(".tableDiv").height(height-$("#listTitle").height()-$("#new").height()-70);
-	$("#personList").height(height-$("#newInfo").height()-$('#photoTitle').height()-70);	
+	$(".tableDiv").height(height-$("#listTitle").height()-$("#new").height()-50);
+	$("#personList").height(height-$("#newInfo").height()-$('#photoTitle').height()-50);	
 }
