@@ -438,12 +438,12 @@ background: linear-gradient(top, #588e57 0%,#3e7c3c 1%,#3a7a39 3%,#1d7124 47%,#1
 .row .leftBtn{
 	float:left;
 	margin-left:10%;
-	margin-right:10%;
+	margin-right:5%;
 	top: 80%;		
 }
 .row .rightBtn {	
 	float:right;
 	margin-right:10%;
-	margin-left:10%;
+	margin-left:5%;
 	top: 80%;		
 }
