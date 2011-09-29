@@ -3,11 +3,11 @@
  */
 
 $(document).ready(function(){
-	//setHeight();
+	setHeight();
 });
 
 window.onresize = function(event) {
-	//setHeight();
+	setHeight();
 }
 
 function setHeight() {
