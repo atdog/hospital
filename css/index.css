@@ -69,11 +69,6 @@ background: linear-gradient(top, #e0e0e0 0%,#ffffff 30%,#ffffff 91%,#dbdbdb 100%
 	z-index: 10;
 }
 
-.loading
-{
-    left:80px;
-   
-}
 
 #notification {
 	position: absolute;
