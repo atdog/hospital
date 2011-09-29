@@ -236,16 +236,19 @@ box-shadow: 1px 1px 4px 2px rgba(00, 00, 00, 0.6);
 }
 
 .inputTextLeft {
+	text-align:right;
 	float: left;
-	width: 150px;
-	height: 10%;
-	font-size: 30px;
-	margin: 1% 10px 0 10%;
+	height:25%;
+	width: 30%;
+	height: 20%;
+	font-size: 2em;
+	margin: 1% 0 0 10%;
 }
 
 .inputTextRight {
 	float: left;
-	width: 150px;
+	width: 30%;
+	height:25%;
 	margin: 1% 1% auto;
 }
 
@@ -270,7 +273,7 @@ a.button {
 	float : left;
 	width:25%;
 	height:50px;	
-	font-size: 25px;	
+	font-size: 1.5em;	
 	text-align: center;
 	border-radius: 5px;
 	
@@ -389,7 +392,7 @@ float:left;
 	padding:10px;			
     top: 70px;
 	
-	font-size: 25px;
+	font-size: 1.5em;
 	color:#FFFFFF;
 	text-align: center;
 	
