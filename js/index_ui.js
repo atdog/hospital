@@ -24,5 +24,6 @@ function setHeight() {
 	$("#List").height(height);	
 	$("#info").height(height);
 	$("#Form").height(height);
+	
 	$(".formData").height(height-$(".redTitle").height()-$(".button").height()-120);
 }
