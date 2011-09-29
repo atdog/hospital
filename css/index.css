@@ -1,8 +1,9 @@
 @CHARSET "UTF-8";
-
+/*
 @font-face {
 src:
-url('Apple.ttf') format('truetype');
+url('msjhbd.ttf') format('truetype');
+
 font-family: 'Apple';
 } 
 
@@ -10,7 +11,7 @@ font-family: 'Apple';
 {
 font-family:'Apple';
 }
-
+*/
 html,body {
 	font-family:'Apple';	
 	margin: 0;
@@ -373,6 +374,7 @@ float:left;
 	position: relative;
 	left: 30%;
 	width: 20%;
+	text-align:center;
 }
 
 .row .right {
@@ -380,6 +382,7 @@ float:left;
 	width: 70%;
 	position: relative;
 	left: 30%;
+	text-align:center;
 }
 
 .row .leftBtn,.row .rightBtn,#checkRegister #check {	

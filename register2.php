@@ -222,14 +222,8 @@
 </head>
 
 <body>
-	<div id="transparent">
-        <div id="checkRegister">
-		<div id="title">掛號成功</div>
-		<div class="row"><div class="left">${item}</div><div class="right">${value}</div><div class="clear"></div></div>
-		<div class="row"><div class="left">${item}</div><div class="right">${value}</div><div class="clear"></div></div>
-		<div class="row"><div class="left">${item}</div><div class="right">${value}</div><div class="clear"></div></div>
-		<div class="row"><div class="left">${item}</div><div class="right">${value}</div><div class="clear"></div></div>
-		<div id="check" onClick="backIndex()">確認完成</div>
+	<div id="transparent" class="hidden">
+        <div id="checkRegister" class="hidden">
 		</div>
     </div>
 	<div id="List">
