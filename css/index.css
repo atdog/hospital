@@ -39,7 +39,8 @@ background: linear-gradient(top, #e0e0e0 0%,#ffffff 30%,#ffffff 91%,#dbdbdb 100%
 	
 	float: left;
 	width: 31%;	
-	border-right: 2px solid #999;
+	border-right: 1% solid #999;	
+
 	/*background:url(../assignMenuBack.png);*/
 }
 
@@ -120,9 +121,9 @@ background: linear-gradient(top, #e0e0e0 0%,#ffffff 30%,#ffffff 91%,#dbdbdb 100%
 #queryDiv , #checkRegister{
 	position: absolute;
 	top: 20px;
-	left: 20%;
+	left: 30%;
 	
-    width: 60%;
+    width: 40%;
 	z-index: 151;	
 	
 	background: #FFFFFF;
@@ -333,7 +334,7 @@ float:left;
 	border-radius: 5px;
     background: rgba(7,61,122,0.3);
 	width: 6 em;
-	padding: 0.25em;
+	padding: 0.5em;
 	margin: 0.25em;
 }
 
@@ -343,9 +344,10 @@ float:left;
 #queryDiv #title,#checkRegister #title {
 	font-size: 2em;
 	position: relative;
-	top: 10%;
-	left: 43%;
-	width: 50%;	
+	top: 10%;	
+	width: 100%;	
+	text-align:center;
+	padding:10px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -365,24 +367,28 @@ float:left;
 
 #queryDiv .row {
 	font-size: 1.3em;
-	width: 100%;
+	width: 100%;	
+	
 	margin-top: 1em;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .row .left {
 	float: left;
 	position: relative;
-	left: 30%;
-	width: 20%;
-	text-align:center;
+	width: 40%;
+	text-align:right;
+	padding-right:5%;
 }
 
 .row .right {
-	float: right;
-	width: 70%;
-	position: relative;
-	left: 30%;
-	text-align:center;
+	float: left;	
+	position: relative;	
+	width: 40%;
+	text-align:left;
+	padding-left:5%;
+	
 }
 
 .row .leftBtn,.row .rightBtn,#checkRegister #check {	
