@@ -121,10 +121,10 @@ background: linear-gradient(top, #e0e0e0 0%,#ffffff 30%,#ffffff 91%,#dbdbdb 100%
 #queryDiv , #checkRegister{
 	position: absolute;
 	top: 20%;	
-	margin-left:30%;
-	margin-right:30%;
+	margin-left:15%;
+	margin-right:15%;
 	
-    width: 60%;
+    width: 70%;
 	z-index: 151;	
 	
 	background: #FFFFFF;
