@@ -11,15 +11,16 @@ window.onresize = function(event) {
     $('#calendar').fullCalendar('option', 'height', window.innerHeight - 20 ); 
 }
 
+window.onload = function(event) {
+	setHeight();    
+}
+
 function setHeight() {
 	var height = window.innerHeight;
 	
-	$(".tableDiv").height(height-$("#listTitle").height()-$("#new").height()-70);
+
 	$("#listDiv").height(height);
-	
-	$("#personList").height(height-$("#newInfo").height()-$('#photoTitle').height()-70);	
 	$("#personal").height(height);
-	
 	
     $('#transparent').height(height);
 	$("#List").height(height);	
@@ -27,4 +28,6 @@ function setHeight() {
 	$("#Form").height(height);
 	
 	$(".formData").height(height-$(".redTitle").height()-$(".button").height()-120);
+	$(".tableDiv").height(height-$("#listTitle").height()-$("#new").height()-70);
+	$("#personList").height(height-$("#newInfo").height()-$('#photoTitle').height()-70);	
 }
