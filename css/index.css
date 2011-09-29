@@ -1,0 +1,376 @@
+@CHARSET "UTF-8";
+
+html,body {
+	margin: 0;
+	padding: 0
+}
+
+#calendar,#Form,#info {
+	height:420px;
+	float: left;
+	width: 500px;
+}
+
+#Form,#info
+{
+	background:url(../infoBack.png);
+}
+
+#listDiv ,#personal,#List{
+	height:420px;
+	float: left;
+	width: 250px;
+	border-right: 2px solid #999;
+	background:url(../assignMenuBack.png);
+}
+
+#personal
+{
+	background:url(../personalMenuBack.png);
+}
+
+#listTitle ,#photoTitle{
+	height:60px;
+	padding-top:10px;
+	background:url(../ListTitleBack.png);
+}
+
+
+.white {
+	position: absolute;
+	top: 45%;
+	left: 80px;
+	border-radius: 5px;
+    border: 2px solid #0a2d54;
+	background: rgba(255,255,255,0.7);
+}
+
+#loadingNewPage ,.loading{
+	font-size: 1em;
+	padding:10px;
+	
+	background: url(../loading.gif) no-repeat center;
+	text-align:center;
+	z-index: 10;
+}
+
+.loading
+{
+    left:80px;
+   
+}
+
+#notification {
+	position: absolute;
+	left: 25px;
+	top:300px;
+	
+	padding:10px;
+	height: 30px;
+	width: 20%;	
+
+	background: #ce3d3d;
+	color:#FFFFFF;
+	
+	text-align:center;
+
+	z-index: 1;
+	border-radius: 5px;
+}
+
+.fc-header {
+	padding: 10px;
+}
+
+.fc-day-number.clicked {
+	color: #F00;
+}
+
+#transparent {
+    position: absolute;
+    background: rgba(255,255,255,0.7);
+    height:420px;
+    width:100%;
+	z-index: 150;	
+}
+
+#queryDiv , #checkRegister{
+	position: absolute;
+	top: 20px;
+	left: 20%;
+	
+    width: 60%;
+	z-index: 151;	
+	
+	background: #FFFFFF;
+	border:5px solid #0a2d54;	
+	border-radius: 5px;	
+}
+
+.hidden {
+	display: none;
+}
+
+.tableDiv, .photoList {
+	overflow-x: hidden;
+	overflow-y: auto;
+	overflow: : -moz-scrollbars-vertical;
+	height: 250px;
+}
+
+
+.rowDiv {
+	width: 97%;
+	padding: 10px 0;
+	padding-left: 3%;
+	border-bottom: 1px solid #CCC;
+	margin-bottom: 1px;
+}
+
+.rowDiv .rowLeft {
+	float: left;
+	width: 20%;
+	margin-right: 5px;
+}
+
+.rowDiv .rowClickHint {
+	width: 8%;
+	float: right;
+	color: #AAA;
+	font-size: 1.5em;
+	background: #333;
+}
+
+.rowDiv .rowRight {
+	float: left;
+	width: 70%;
+	border-radius: 10px;
+}
+
+.rowDiv .rowRight p {
+	font-weight: bold;
+	font-size: 1.1em;
+	margin: .25em 0;
+}
+
+.clear {
+	clear: both;
+}
+
+.title {
+	font-size: 2.5em;
+	font-weight: bold;
+	text-align: center;
+	border-bottom: 5px solid #AAA;	
+}
+
+.button {
+	width:220px;
+	height:55px;
+	padding-top:15px;
+	background:url(../buttonBack.png) no-repeat;	
+	font-size: 30px;
+	font-weight: bold;
+	color:#FFFFFF;
+	text-align: center;	
+	cursor: pointer;	
+}
+
+#new,#newInfo{
+	/*width: 95%;*/
+	margin: 0 auto;
+}
+
+
+.redTitle {
+	padding-top:15px;
+	height:65px;
+	font-size: 2.5em;
+	background: #04042a;
+	color:#FFFFFF;
+	text-align: center;		
+}
+
+/*
+ * For regiter.html page
+ */
+#personal {
+	/*float: left;
+	width: 16%;
+	margin-right: 2%;*/
+}
+
+
+.photo {
+	padding-left: 4em;
+	padding-right: 2em;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #CCC;
+}
+
+.inputTextLeft {
+	float: left;
+	width: 150px;
+	height: 10%;
+	font-size: 30px;
+	margin: 1% 10px 0 10%;
+}
+
+.inputTextRight {
+	float: left;
+	width: 150px;
+	margin: 1% 1% auto;
+}
+
+.inputTextRight input {
+	height: 30px;
+	width: 200px;
+}
+
+.formData { 	
+	margin:20px 5% 5% 10px;	
+	padding: 5px 10px 10px 10px;
+	background:#dfdfdf;
+	border-radius: 10px;
+	/* padding: 5em; */
+	/* height: 23.5em; */
+	
+}
+
+a.button {
+	margin-left:30px;
+	margin-right:30px;
+	width:170px;
+	height:65;
+	background:url("../buttonGreenBack.png") no-repeat;
+	font-size: 25px;	
+	text-align: center;
+	/*border-radius: 10px;*/
+}
+
+/*
+ * For regiter2.html page
+ */
+#List {
+	/*float: left;
+	width: 23%;
+	height: 38em;*/
+	overflow-x: hidden;
+	overflow-y: auto;
+	overflow: : -moz-scrollbars-vertical;
+	/*margin-right: 2%;*/
+	/*border-right: 1px solid #999;*/
+}
+
+.item {
+	font-size: 1.8em;
+	background: #F2EEBA;
+	text-align: center;
+	border-radius: 5px;
+    background: rgba(7,61,122,0.3);
+	width: 6 em;
+	padding: 0.25em;
+	margin: 0.25em;
+}
+
+
+
+
+#queryDiv #title,#checkRegister #title {
+	font-size: 2em;
+	position: relative;
+	top: 10%;
+	left: 35%;
+	width: 50%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+#checkRegister .row {
+	font-size: 1.3em;
+	position: relative;
+	top: 20%;
+	width: 100%;
+	margin-bottom: 1em;
+}
+
+.row .left {
+	float: left;
+	width: 30%;
+}
+
+.row .right {
+	float: right;
+	width: 70%;
+}
+
+
+
+#queryDiv .row {
+	font-size: 1.3em;
+	width: 100%;
+	margin-top: 1em;
+}
+
+.row .left {
+	float: left;
+	position: relative;
+	left: 20%;
+	width: 20%;
+}
+
+.row .right {
+	float: left;
+	width: 70%;
+	position: relative;
+	left: 20%;
+}
+
+.row .leftBtn,.row .rightBtn,#checkRegister #check {
+	
+	position: relative;
+	float: left;
+	width: 100px;
+	height:30px;
+	padding:10px;			
+    top: 70px;
+	
+	font-size: 25px;
+	color:#FFFFFF;
+	text-align: center;
+	
+	
+	border-radius: 5px;
+	background: url("../buttonSmallBack.png");
+}
+
+#checkRegister #check {
+	top: 0px;
+	left: 180px;
+    margin-bottom: 10px;	
+	color:#FFFFFF;	
+	border-radius: 5px;
+}
+
+
+.row .leftBtn{
+	top: 80%;	
+	text-align:left;
+    margin-left:40px;
+    margin-bottom:20px;
+}
+.row .rightBtn {	
+	top: 80%;	
+	text-align:right;
+    margin-left:150px;
+    margin-bottom:20px;
+}
+
+.rightBtn,.leftBtn,#check,.formData
+{
+-webkit-box-shadow: 2px 2px 2px 1px rgba(00, 00, 00, 0.4);
+ -moz-box-shadow: 2px 2px 2px 1px rgba(00, 00, 00, 0.4);
+ box-shadow: 2px 2px 2px 1px rgba(00, 00, 00, 0.4);
+}

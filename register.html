@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+<link rel='stylesheet' type='text/css' href='css/fullcalendar.css' />
+<link rel='stylesheet' type='text/css' href='css/index.css' />
+<script type='text/javascript' src='js/jquery-1.5.2.min.js'></script>
+<script type='text/javascript' src='js/jquery.jsoncookie.js'></script>
+<script type='text/javascript' src='js/json2.js'></script>
+<script type='text/javascript' src='js/fullcalendar.js'></script>
+<script type='text/javascript' src='js/index_ui.js'></script>
+<script>
+	$(document).ready(function() {
+		//dropTable();
+		selectAllPerson();
+	});
+
+	function selectAllPerson() {
+        updateLeftList();
+	}
+
+	function updateLeftList() {
+        var results = $.cookie("data");
+		for ( var i = 0; i < results.length; i++) {
+			var row = results[i];
+			var person = new Object();
+
+			person.name = row.name;
+			person.id = row.id;
+			person.birthday = row.birthday;
+			person.phone = row.phone;
+			person.keyId = row.keyId;
+			//person.image = row.image;
+
+			$('#personList')
+					.append(
+							'<div class="photo"><img src="archer.jpg'
+									+ '" width="100px" onClick="updateRightData(\''
+									+ person.keyId
+									+ '\',\''
+									+ person.name
+									+ '\',\''
+									+ person.id
+									+ '\',\''
+									+ person.birthday
+									+ '\',\''
+									+ person.phone
+									+ '\')"></img><img src="X.jpg" align="top" width="10%" onClick="deletePerson(\''
+									+ person.keyId + '\',\''+person.id+'\');"/></div>');
+		}
+	}
+	function deletePerson(keyId, idNumber) {
+        var results = $.cookie("data");
+		for ( var i = 0; i < results.length; i++) {
+            if(results[i].id == idNumber) {
+                results.splice(i,1);
+                break;
+            }
+        }
+        $.cookie("data", results);
+        window.location.reload("register.html");
+	}
+	function updateRightData(keyId, name, id, birthday, phone) {
+		$('#inputName').val(name);
+		$('#inputId').val(id);
+		$('#inputBirthday').val(birthday);
+		$('#inputPhone').val(phone);
+		$('#keyId').val(keyId);
+		//$('#pic')
+		//		.html(
+		//				'<img src="/img?id='
+		//						+ id
+		//						+ '" style="height:5em;"></img><input type="file" name="img"/>');
+	}
+
+	function newInfo() {
+		$('#notification').removeClass('hidden');
+		$('#inputName').val("");
+		$('#inputId').val("");
+		$('#inputBirthday').val("");
+		$('#inputPhone').val("");
+		$('#keyId').val(0);
+		$('#pic').html('<input type="file" name="img"/>');
+	}
+
+	function submitForm() {
+		var keyId = $('#keyId').val();
+		var inputName = $('#inputName').val();
+		var inputId = $('#inputId').val();
+		var inputBirthday = $('#inputBirthday').val();
+		var inputPhone = $('#inputPhone').val();
+
+
+        if(inputName.length != 0 && inputId.length != 0 && inputBirthday.length != 0 && inputPhone.length != 0) {
+            //for cookie
+            var old_data = $.cookie("data");
+            var isExist = false;
+            var candidate;
+            if(old_data == null) {
+                old_data = new Array();
+            }
+            else {
+                for ( var i = 0; i < old_data.length; i++) {
+                    if(old_data[i].id == inputId) {
+                        isExist = true;
+                        candidate = i;
+                        break;
+                    }
+                }
+            }
+            if(!isExist) {
+                var data = {
+                    name: inputName,
+                    id: inputId,
+                    birthday: inputBirthday,
+                    phone: inputPhone
+                };
+                old_data.push(data);
+            }
+            else {
+                old_data[candidate].name = inputName;
+                old_data[candidate].id = inputId;
+                old_data[candidate].birthday = inputBirthday;
+                old_data[candidate].phone = inputPhone;
+            }
+            $.cookie("data",old_data);
+
+			$.ajax({
+				type : "GET",
+				url : "local-ajax/newUser.php",
+				dataType : "json",
+				data : {
+					"id" : inputId,
+					"birthday" : inputBirthday
+				},
+				success : function(response) {
+					$('#personalInfo').submit();
+				},
+				error : function(xhr, ajaxOptions, thrownError) {
+					alert(xhr.status);
+					alert(thrownError);
+				}
+			});
+		} else {
+			alert("Empty column.");
+		}
+	}
+	function lastPage() {
+		window.location='index.htm';
+	}
+</script>
+</head>
+
+<body>
+	<div id="personal">
+		<div id="photoTitle" class="title">個人資料</div>
+		<div class="photoList" id="personList"></div>
+		<div class="button" id="newInfo" style="width: 90%;" onClick="newInfo()">新增資料</div>
+	</div>
+	
+	<div id="info">
+		<div class="redTitle">填寫個人資料</div>
+		<div id="notification" class="hidden" >請填入資料後，<br>按送出以新增資料</div>
+		<form id="personalInfo" method="post" enctype="multipart/form-data"
+			action="register2.php">
+			<div class="formData">
+				<div class="inputTextLeft">姓名：</div>
+				<div class="inputTextRight">
+					<input type="text" name="name" id="inputName" placeholder="請輸入姓名"></input>
+				</div>
+				<div class="clear"></div>
+				<div class="inputTextLeft">身分證：</div>
+				<div class="inputTextRight">
+					<input type="text" name="id" id="inputId" placeholder="請輸入身分證字號"></input>
+				</div>
+				<div class="clear"></div>
+				<div class="inputTextLeft">生日：</div>
+				<div class="inputTextRight">
+					<input type="text" name="birthday" id="inputBirthday"
+						placeholder="請輸入生日,例：1988/02/03"></input>
+				</div>
+				<div class="clear"></div>
+				<div class="inputTextLeft">電話：</div>
+				<div class="inputTextRight">
+					<input type="text" name="phone" id="inputPhone"
+						placeholder="請輸入電話號碼"></input>
+				</div>
+				<input type="hidden" id="keyId" value="0"></input>
+				<div class="clear"></div>
+				<div class="inputTextLeft">照片：</div>
+				<div class="inputTextRight" id="pic">
+					<input type="file" name="img" />
+				</div>
+				<div class="clear"></div>
+			</div>
+			<a class="button" onClick="lastPage();"	style='float: left;'>上一頁</a> 
+			<a class="button" onClick="javascript:submitForm();" style="float: right;">送出</a>
+			<div class="clear"></div>
+
+		</form>
+	</div>
+	<div class="clear"></div>
+</body>
+</html>
