@@ -1,17 +1,5 @@
 @CHARSET "UTF-8";
-/*
-@font-face {
-src:
-url('msjhbd.ttf') format('truetype');
 
-font-family: 'Apple';
-} 
-
-*
-{
-font-family:'Apple';
-}
-*/
 html,body {
 	font-family:'Apple';	
 	margin: 0;
@@ -476,7 +464,8 @@ background: linear-gradient(top, #588e57 0%,#3e7c3c 1%,#3a7a39 3%,#1d7124 47%,#1
 font-size:1em;
 border-radius: 5px;
 padding:10px;
-margin-left:4%;
+margin-top:5%;
+margin-left:10%;
 cursor: pointer;
 cursor: pointer;
 
@@ -499,6 +488,11 @@ box-shadow: 1px 1px 4px 2px rgba(00, 00, 00, 0.6);
 
 }
 
+#inputNameValue ,#inputIdValue,#inputBirthdayValue,#inputPhoneValue
+{
+font-size:2em;
+}
+
 #editInfo{
 	width: 80%;
 	height: 98%;
@@ -512,4 +506,9 @@ box-shadow: 1px 1px 4px 2px rgba(00, 00, 00, 0.6);
 
 	border:5px solid #666;
 	border-radius:5px;
+}
+
+#editInfo .rightBtn,#editInfo .leftBtn
+{
+top:70%;
 }
