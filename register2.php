@@ -37,8 +37,8 @@
 				}
 			},
 			error : function(xhr, ajaxOptions, thrownError) {
-				alert(xhr.status);
-				alert(thrownError);
+				//alert(xhr.status);
+				//alert(thrownError);
 			}
 		});
 	}
@@ -68,8 +68,8 @@
 				}
 			},
 			error : function(xhr, ajaxOptions, thrownError) {
-				alert(xhr.status);
-				alert(thrownError);
+				//alert(xhr.status);
+				//alert(thrownError);
 			}
 		});
 		$('#inputHospital').val(name);
@@ -108,8 +108,8 @@
 				}
 			},
 			error : function(xhr, ajaxOptions, thrownError) {
-				alert(xhr.status);
-				alert(thrownError);
+				//alert(xhr.status);
+				//alert(thrownError);
 			}
 		});
 		$('#inputDept').val(name);
@@ -143,10 +143,13 @@
             				.append(
             						'<div class="item" onClick="chooseTime(\''+time[i]+'\')">'+timeObj[1]+'/'+timeObj[2]+' '+timeObj[3]+'</div>');
                 }
+                if(time.length == 0) {
+                   $('#List').append("<h1 style='text-align:center;'>目前沒有時段</h1>");
+                }
 			},
 			error : function(xhr, ajaxOptions, thrownError) {
-				alert(xhr.status);
-				alert(thrownError);
+				//alert(xhr.status);
+				//alert(thrownError);
 			}
 		});
 		$('#inputDoctor').bind('click', function() {
@@ -162,7 +165,7 @@
 	function submitRegister() {
 		if ($('#inputHospital').val() == "" || $('#inputDept').val() == ""
 				|| $('#inputDoctor').val() == "" || $('#inputTime').val() == "") {
-			alert("Empty column.");
+            showNotifiaction();
 			return;
 		}
 		$
@@ -214,7 +217,7 @@
                         $('#checkRegister').css("top", queryDivTop);
 					},
 					error : function(xhr, ajaxOptions, thrownError) {
-						alert("Error. back to main page");
+						//alert("Error. back to main page");
 						window.location="/";
 					}
 				});
@@ -231,6 +234,11 @@
 	<div id="transparent" class="hidden">
         <div id="checkRegister" class="hidden">
 		</div>
+    </div>
+    <div id="notificationBackground" class="hidden"></div>
+	<div id="notification" class="hidden">
+       <div id="notificationText">請先填入資料</div>
+       <div id="notificationButton" onClick="closeNotification();">確認</div>
     </div>
 	<div id="List">
 	</div>
@@ -267,8 +275,8 @@
 				<div class="clear"></div>
 			</div>
 			<input type="hidden" id="hiddenId" value="<?=$_POST['id']?>"></input> <input type="hidden" id="hiddenBirthday" value="<?=$_POST['birthday']?>"></input> 
-			<a	class="button" id="lastPage" onClick="lastPage();" >上一頁</a>
-			<a class="button" id="submit" onClick="javascript:submitRegister();">送出</a>
+			<a	class="button" id="lastPage" onClick="lastPage();" >上一步</a>
+			<a class="button" id="submit" onClick="javascript:submitRegister();">完成</a>
 			<div class="clear"></div>
 
 		</form>

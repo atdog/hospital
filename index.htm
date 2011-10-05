@@ -47,15 +47,15 @@ function queryRegist(rid) {
 			}).append(row, {
 				item:'診號',
 				value:response['number'],
-			}).append('<div class="row"><div class="leftBtn" onClick="cancelRegister(\''+response['rid']+'\',\''+response['hospitalId']+'\',\''+response['deptId']+'\',\''+response['doctorId']+'\',\''+response['idNumber']+'\',\''+response['birthday']+'\',\''+response['time']+'\');">取消掛號</div><div class="rightBtn" onClick="javascript:$(\'#queryDiv\').addClass(\'hidden\');$(\'#transparent\').addClass(\'hidden\')">確認完成</div><div class="clear"></div><div>');
+			}).append('<div class="row"><div class="leftBtn" onClick="javascript:$(\'#queryDiv\').addClass(\'hidden\');$(\'#transparent\').addClass(\'hidden\')">確認完成</div><div class="rightBtn" onClick="cancelRegister(\''+response['rid']+'\',\''+response['hospitalId']+'\',\''+response['deptId']+'\',\''+response['doctorId']+'\',\''+response['idNumber']+'\',\''+response['birthday']+'\',\''+response['time']+'\');">取消掛號</div><div class="clear"></div><div>');
 
             var queryDivTop = (window.innerHeight - $('#queryDiv').height()) / 2;
             $('#queryDiv').css("top", queryDivTop);
 
 		},
 		error : function(xhr, ajaxOptions, thrownError) {
-			alert(xhr.status);
-			alert(thrownError);
+			//alert(xhr.status);
+			//alert(thrownError);
 		}
 	});
 	$('#queryDiv').removeClass('hidden');
@@ -100,8 +100,8 @@ function cancelRegister(rid, hospitalId, deptId, doctorId, idNumber, birthday, t
 			window.location.reload();
 		},
 		error : function(xhr, ajaxOptions, thrownError) {
-			alert(xhr.status);
-			alert(thrownError);
+			//alert(xhr.status);
+			//alert(thrownError);
 		}
 	});
 }
@@ -135,7 +135,7 @@ function updateLeftCalendar() {
 			for( var j =0; j< response.length ;++j) {
 				$('#listDiv .tableDiv').append(row,{
 					rid:response[j]['rid'],
-					image:"archer.jpg",
+					image:"http://www.cs.nctu.edu.tw/~hcsu/hospital_db/view_image.php?id="+response[j]['idNumber'],
 					title:response[j]['title'],
 					subtitle:response[j]['subtitle'],
 					time:response[j]['start']
@@ -144,8 +144,8 @@ function updateLeftCalendar() {
 		},
   		dataType: 'json',
 	    error : function(xhr, ajaxOptions, thrownError) {
-	    	alert(xhr.status);
-	    	alert(thrownError);
+	    	//alert(xhr.status);
+	    	//alert(thrownError);
 	    },
   		color: "purple",
 	});

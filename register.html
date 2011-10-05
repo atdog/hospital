@@ -35,7 +35,8 @@
 
 			$('#personList')
 					.append(
-							'<div class="photo"><img src="archer.jpg'
+							'<div class="photo"><img src="http://www.cs.nctu.edu.tw/~hcsu/hospital_db/view_image.php?id='
+                                    + person.id
 									+ '" width="100px" onClick="updateRightData(\''
 									+ person.name
 									+ '\',\''
@@ -81,6 +82,10 @@
 
 
         if(inputName.length != 0 && inputId.length != 0 && inputBirthday.length != 0 && inputPhone.length != 0) {
+            $('#transparentBackground').removeClass("hidden");
+            if( navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/iPad/i)) {
+                window.location="/submitNewUserInfo";
+            }
             //for cookie
             var old_data = $.cookie("data");
             var isExist = false;
@@ -113,8 +118,8 @@
                 old_data[candidate].phone = inputPhone;
             }
             $.cookie("data",old_data);
-            updateLeftList();
-            updateRightData(inputName, inputId, inputBirthday, inputPhone);
+            //updateLeftList();
+            //updateRightData(inputName, inputId, inputBirthday, inputPhone);
             hideEditPage();
 
 			$.ajax({
@@ -126,14 +131,15 @@
 					"birthday" : inputBirthday
 				},
 				success : function(response) {
+                    window.location="register.html";
 				},
 				error : function(xhr, ajaxOptions, thrownError) {
-					alert(xhr.status);
-					alert(thrownError);
+					//alert(xhr.status);
+					//alert(thrownError);
 				}
 			});
 		} else {
-			alert("Empty column.");
+            showNotifiaction();
 		}
     }
 
@@ -149,7 +155,7 @@
             $('#postBirthday').val(inputBirthday);
             $('#personalInfo').submit();
 		} else {
-			alert("Empty column.");
+            showNotifiaction();
 		}
 	}
 	function lastPage() {
@@ -179,13 +185,42 @@
     function hideEditPage() {
         $('#editInfo').slideUp('slow');
         $('#transparent').addClass('hidden');
+
+    }
+
+    function closeEditMode() {
+        if( navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/iPad/i)) {
+            window.location="/cancel";
+        }
+        hideEditPage();
     }
 		
+    function takeshot() {
+        if($('#inputId').val() == "") {
+            showNotifiaction();
+        }
+        else {
+            if( navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/iPad/i)) {
+                window.location='/takeshot?id='+$('#inputId').val();
+            }
+        }
+    }
 </script>
 </head>
 
 <body>
+    <div id="transparentBackground" class="hidden">
+        <div id="whiteBackground" >
+	        <div id="onLoad">讀取中</div>
+        </div>
+    </div>
+
 	<div id="transparent" class="hidden"></div>
+    <div id="notificationBackground" class="hidden"></div>
+	<div id="notification" class="hidden">
+       <div id="notificationText">請先填入資料</div>
+       <div id="notificationButton" onClick="closeNotification();">確認</div>
+    </div>
 	<div id="personal">
 		<div id="photoTitle" class="title">個人資料</div>
 		<div class="photoList" id="personList">			
@@ -199,7 +234,6 @@
 	<div id="info">
 				
 		<div class="redTitle">填寫個人資料 </div>
-		<!--<div id="notification" class="hidden" >請填入資料後，<br>按送出以新增資料</div>-->
 		
 		<form id="personalInfo" method="post" enctype="multipart/form-data"
 			action="register2.php">
@@ -228,8 +262,8 @@
 				</div>
 				<div class="clear"></div>
 			</div>
-			<a class="button" id="lastPage" onClick="lastPage();"	>上一頁</a> 
-			<a class="button" id="submit" onClick="javascript:submitForm();">送出</a>
+			<a class="button" id="lastPage" onClick="lastPage();"	>上一步</a> 
+			<a class="button" id="submit" onClick="javascript:submitForm();">下一步</a>
 			<div class="clear"></div>
             <input type="hidden" id="postId" name="id"></input>
             <input type="hidden" id="postBirthday" name="birthday"></input>
@@ -269,11 +303,11 @@
 				<div class="inputTextRight">
 					<input type="text" id="inputPhone"
 						placeholder="請輸入電話號碼"></input>
+                <span class="editButton" id="editButton" onclick="takeshot()">拍照</span>
 				</div>
 				<div class="clear"></div>
-                <input type="hidden" id=>
 			</div>
-			<a class="button" id="lastPage" onClick="hideEditPage()">取消</a> 
+			<a class="button" id="lastPage" onClick="closeEditMode()">取消</a> 
 			<a class="button" id="submit" onClick="updateCookie();">送出</a>
 			<div class="clear"></div>
 
