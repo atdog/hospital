@@ -1,4 +1,5 @@
 <?
+header("Content-type: text/javascript");
 $hospitalId = $_GET['hospitalId'];
 $doctorId = $_GET['doctorId'];
 $deptId = $_GET['deptId'];
@@ -10,5 +11,10 @@ $birthday = $_GET['birthday'];
 $time = $_GET['time'];
 $first = $_GET['first'];
 $response = file_get_contents ("http://www.cs.nctu.edu.tw/~hcsu/hospital_db/register.php?hospitalId=$hospitalId&doctorId=$doctorId&deptId=$deptId&hospital=$hospital&dept=$dept&doctor=$doctor&id=$id&birthday=$birthday&time=$time&first=$first"); 
-echo $response;
+if(isset($_GET['callback'])){
+    echo $_GET['callback']."(".$response.")";
+}
+else {
+    echo $response;
+}
 ?>
