@@ -10,7 +10,8 @@ $id = $_GET['id'];
 $birthday = $_GET['birthday'];
 $time = $_GET['time'];
 $first = $_GET['first'];
-$response = file_get_contents ("http://www.cs.nctu.edu.tw/~hcsu/hospital_db/register.php?hospitalId=$hospitalId&doctorId=$doctorId&deptId=$deptId&hospital=$hospital&dept=$dept&doctor=$doctor&id=$id&birthday=$birthday&time=$time&first=$first"); 
+$message = $_GET['message'];
+$response = file_get_contents ("http://www.cs.nctu.edu.tw/~hcsu/hospital_db/register.php?hospitalId=$hospitalId&doctorId=$doctorId&deptId=$deptId&hospital=$hospital&dept=$dept&doctor=$doctor&id=$id&birthday=$birthday&time=$time&first=$first&message=$message"); 
 if(isset($_GET['callback'])){
     echo $_GET['callback']."(".$response.")";
 }
